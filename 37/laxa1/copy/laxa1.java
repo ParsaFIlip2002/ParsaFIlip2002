@@ -1,4 +1,4 @@
-package laxa1;
+package laxa1.copy;
 
 import java.util.Scanner;
 
@@ -40,7 +40,7 @@ public class laxa1 {
 						   "Namn:    "     + namn 		+ "\n" +
 						   "Ålder:   "     + ålder 		+ "\n" +
 						   "Adress:  "    + adress 		+ "\n" + 
-						   "    	 "    + postnummer 	+ "\n" + // Finns det ett bättre sett att göra mellanslag?
+						   "         "    + postnummer 	+ "\n" + // Finns det ett bättre sett att göra mellanslag?
 						   "Telefon: "   + tlfnummer 	+ "\n"); 
 	}
 
