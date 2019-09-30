@@ -1,3 +1,4 @@
+package laxor;
 import java.util.Scanner;
 
 public class laxa2 {
