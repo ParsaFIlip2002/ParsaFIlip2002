@@ -21,6 +21,7 @@ public class laxav40 {
 		if (y<45) { 
 			System.out.println((x-1) + ":" + (y-45)/(-) );
 		}
+		
 	
 	
 	}
