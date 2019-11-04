@@ -10,7 +10,7 @@ public class v40 {
 				System.out.println(celsius(100));
 				ageControl(100);
 				stair(24);
-			}
+			} 
 
 			public static void lol() {
 				System.out.println("HAHAHAHAHAHAHA"); // Skriver ut texten.
