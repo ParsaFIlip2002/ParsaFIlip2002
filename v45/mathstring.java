@@ -4,7 +4,7 @@ public class mathstring {
 
 	public static void main(String[] args) {
 		
-	double svar = Math.sqrt(Math.pow(3, 2) + 4);	
+		double svar = Math.sqrt(Math.pow(3, 2) + 4);	
 	// bSystem.out.println(svar);
 	
 		Math.max(3, 7);
