@@ -7,8 +7,9 @@ public class Hangman {
 	private static String answer;
 	private static String[] word;
 	private static String[] NoWord;
+	public static String Guess;
+	
 
-			
 	public static void main(String[] args) {
 
 		System.out.println("Welcome to Hangman! To win you have to guess the right word");
@@ -20,7 +21,6 @@ public class Hangman {
 		System.out.println("There is also an game mood called own word where you choose your own word");
 		System.out.println("Write 1-3 is the level and 4 is own word");
 
-		
 		Scanner input = new Scanner(System.in);// Skannar input som kommer ifrån konsolen
 		int choice = 0;
 		try {
@@ -33,10 +33,8 @@ public class Hangman {
 
 		if (choice == 1) {
 			wordsLevelOne(choice);
-			Stars (NoWord);	
+			Stars();
 			Guess(word);
-					
-			
 
 		}
 	}
@@ -51,34 +49,36 @@ public class Hangman {
 	}
 
 	public static void Guess(String[] word) {
-		
+
 		for (int i = 0; i < answer.length(); i++) {
 
 			Scanner input = new Scanner(System.in);
-			String Guess = input.next();
+			String Gissning = input.next();
 
-			if (answer.contains(Guess)) {
+			if (answer.contains(Gissning)) {
 				System.out.println("GJ");
-			} 
-			else {
+			} else {
 				System.out.println("sad");
 			}
 		}
 	}
-	
-	public static void Stars(String[] NoWord) {
-		
-		for (int i = 0; i < NoWord.length; i++) {
-			String string = NoWord[i];
-			
-		
-			System.out.println("*****");
+
+	public static void Stars() {
+
+		String[] StarWord = new String[answer.length()];
+
+		for (int i = 0; i < answer.length(); i++) {
+			StarWord[i] = "*";
+
 		}
-		return;
+
+		for (int i = 0; i < StarWord.length; i++) {
+			answer.charAt(i);
+			if (answer.charAt(i)==gissning) {
+				
+			}
+
 		}
-	
-	
+	}
 
 }
-
-
