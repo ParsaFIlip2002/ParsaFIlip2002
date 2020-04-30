@@ -17,24 +17,23 @@ public class hangman2 {
 			System.out.println(e);
 		}
 
-		String answer;
+		String UnknownWord;
 
 		if (choice == 1) {
 
-			answer = RandomWord1();
-		}
-		else if (choice == 2) {
-			answer = RandomWord2();
-		}
-		else if (choice == 3) {
+			UnknownWord = RandomWord1();// Resultat av RandomWord blir till UnknownWord
+		} else if (choice == 2) {
 
-			answer = RandomWord3();
+			UnknownWord = RandomWord2();
+		} else if (choice == 3) {
+
+			UnknownWord = RandomWord3();
 		} else {
-			answer = "hej";
+			UnknownWord = "hej";
 		}
 
-		LetterChecker(answer);
-
+		ReplaceLetter(UnknownWord, LetterChecker(UnknownWord)); // Skickar två variabler till metoden ReplaceLetter
+		String StarWord = StarMaker(UnknownWord);
 	}
 
 	public static void Welcome() {
@@ -51,61 +50,75 @@ public class hangman2 {
 
 	public static String RandomWord1() {
 
-		String[] arr = { "saint", "error", "danger", "chant", "chart" };
+		String[] arr = { "saint", "error", "danger", "chant", "chart" }; // array
 		Random r = new Random(); // Inbygd method som slumpar
 		int randomIndex = r.nextInt(arr.length); // arr.length för att slumpa 0-4
 		System.out.println(arr[randomIndex]);
-		String answer = arr[randomIndex];
 
-		return arr[randomIndex];
+		return arr[randomIndex]; // returnerar arr[randomIndex]
 	}
 
 	public static String RandomWord2() {
 
-		String[] arr = { "betrays", "beaches", "boutons", "mondays", "advised" };
+		String[] arr = { "betrays", "beaches", "boutons", "mondays", "advised" }; // array
 		Random r = new Random(); // Inbygd method som slumpar
 		int randomIndex = r.nextInt(arr.length); // arr.length för att slumpa 0-4
 		System.out.println(arr[randomIndex]);
-		String answer = arr[randomIndex];
 
-		return arr[randomIndex];
+		return arr[randomIndex]; // returnerar arr[randomIndex]
 	}
 
 	public static String RandomWord3() {
 
-		String[] arr = { "abbotship", "worldwide", "unriddled", "unguarded", "transform" };
+		String[] arr = { "abbotship", "worldwide", "unriddled", "unguarded", "transform" }; // array
 		Random r = new Random(); // Inbygd method som slumpar
 		int randomIndex = r.nextInt(arr.length); // arr.length för att slumpa 0-4
-		System.out.println(arr[randomIndex]);
+		System.out.println(arr[randomIndex]);// Skriver ut metod
 
-		return arr[randomIndex];
+		return arr[randomIndex]; // returnerar arr[randomIndex]
 
 	}
 
-	public static void LetterChecker(String answer) {
-		for (int i = 0; i < answer.length(); i++) {
-			
-		String[] StarWord = new String[answer.length()];
-		StarWord[i] = "*";
-		System.out.print(StarWord[i]);
-		}
-		System.out.println();
-		
+	public static String LetterChecker(String UnknownWord) {
+
 		Scanner input = new Scanner(System.in);
-		String Gissning = input.nextLine();
-		
-		if (answer.contains(Gissning)) {
+		String Gissning = input.nextLine(); // initeierar input till String Gissning
+
+		if (UnknownWord.contains(Gissning)) { // kollar om Gissning finns i UnknownWord
 			System.out.println("Right letter!");
-			}
-		 else {
+		} else {
 			System.out.println("Wrong letter! ");
-		
-			
+
 		}
-		
-		
+
+		return Gissning;
+
 	}
-	
-	
-	
+
+	public static String StarMaker(String UnknownWord) {
+
+		String StarWord = "";
+
+		for (int i = 0; i < UnknownWord.length(); i++) {
+
+			StarWord += "*";
+
+		}
+		System.out.print(StarWord);
+		return StarWord;
+	}
+
+	public static void ReplaceLetter(String UnknownWord, String Gissning) {
+
+		for (int i = 0; i < UnknownWord.length(); i++) {
+
+			String txt = UnknownWord;
+			System.out.println(txt.indexOf(Gissning));
+			System.out.println(StarWord.replace(txt.indexOf(Gissning), Gissning));
+			break;
+
+		}
+
+	}
+
 }
