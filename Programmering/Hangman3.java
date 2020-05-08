@@ -115,7 +115,7 @@ public class Hangman3 {
 	private static void progressWord(String answer) { // Skapar en String med hjälp av answer.length() så att
 														// Stringen med sträck är lika lång som answer
 		// gör till array
-		for (int i = 0; i < answer.length(); i++) {
+		for (int i = 1; i < answer.length(); i++) {
 
 			progressWord += "_"; // concatinera plus text
 
