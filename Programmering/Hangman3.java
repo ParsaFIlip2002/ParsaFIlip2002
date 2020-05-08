@@ -78,7 +78,7 @@ public class Hangman3 {
 
 		progressWord(answer);// Kör metod
 
-		for (int tries = 0; tries < 10; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // initierar en variabel till metoden getGuess
@@ -134,7 +134,7 @@ public class Hangman3 {
 
 		
 
-		for (int tries = 0; tries < 10; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // Kör metod och ger den namnet String guess
@@ -180,7 +180,7 @@ public class Hangman3 {
 		progressWord(answer);// Kör metod
 
 
-		for (int tries = 0; tries < 10; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // Kör metod och ger den namnet String guess
