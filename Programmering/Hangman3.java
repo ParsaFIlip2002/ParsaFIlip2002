@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-//import java.util.Iterator;
 import java.util.Scanner;
 
-//import com.sun.corba.se.spi.orbutil.fsm.Input;
 
 public class Hangman3 {
 	// TODO restarta
@@ -12,13 +10,17 @@ public class Hangman3 {
 	private static String progressWord = "_"; // Gör så att progressWord är globalt
 
 	private static Scanner _input = new Scanner(System.in);// globalt
+	
+	private static String guessedLetters = "";
 
 	private static ArrayList<String> _wordList = new ArrayList<String>();// globalt
+	
+
 
 	public static void main(String[] args) {
 		printWelcomeMessage(); // Kör metod
 		play();// Kör metod
-		printGoodbyeMessage();// Kör metod
+		thanksForPlayin();// Kör metod
 	}
 
 	private static void play() {
@@ -29,12 +31,27 @@ public class Hangman3 {
 				startGame(difficulty);
 
 			}
-			if (difficulty == 4) {
-				play();
+			if (difficulty == 4) {	
+				restartGame();
 
 			}
 			break; // breakar
 		}
+	}
+
+	private static void guessedLetters(String guess) {
+		
+		guessedLetters += guess;
+		
+		
+	}
+	
+	private static void restartGame() {
+		
+		progressWord = "_";
+		guessedLetters = "";
+		play();
+
 	}
 
 	private static void startGame(int difficulty) { // Väljer svårighetsgrad med hjälp av int difficulty
@@ -60,7 +77,6 @@ public class Hangman3 {
 
 		default: // Skriver ut detta om inget av de ovanstående blir uppfyllda
 			System.out.println("Needs to be between 1-3");
-
 			break;
 		}
 
@@ -73,20 +89,25 @@ public class Hangman3 {
 		populateEasyWordList(); // Kör metod
 
 		String answer = getRandomWord();// Kör metod och hämtar ett enkelt ord med hjälp av populateEasyWordList();
-											// och wordList som är global
-	//	System.out.println(answer);
-
+										// och wordList som är global
+		
 		progressWord(answer);// Kör metod
 
-		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 16; tries++) {// For loop som skapar variabel tries. Får inte blir mer än 15
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // initierar en variabel till metoden getGuess
+
+			guessedLetters(guess);
+			
+			System.out.println("Your guessed letters: " + guessedLetters);
 			
 			if (answer.contains(guess.toLowerCase())) { // om det man gissar finns i ordet så körs denna if sats
-				tries--; // om man har rätt så ska inte tries öka
+				// om man har rätt så ska inte tries öka
+				System.out.println("Right letter");
+				System.out.println("Guesses made:" + tries);
 
-				char[] tempWord = progressWord.toCharArray(); //
+				char[] tempWord = progressWord.toCharArray();
 
 				for (int i = 0; i < answer.length(); i++) { // En loop som körs så många gånger som lengten på answer
 
@@ -96,19 +117,33 @@ public class Hangman3 {
 						tempWord[i] = guess.charAt(0); // Ersätter tempWord till guess
 
 					}
+
 				}
 
-				progressWord = String.copyValueOf(tempWord); //
+				progressWord = String.copyValueOf(tempWord);
 
-			} else {
-				System.out.println("Wrong");
+			}
+
+			else {
+				System.out.println("Wrong letter");
 				System.out.println(tries);
+				
+				
 			}
 
 			System.out.println(progressWord);
 
+			if (tries > 14) {
+				printYouLost();
+			}
+
+			if (progressWord.equals(answer)) {
+				printYouWon();
+				printRestartMessage();
+
+			}
+
 		}
-		printYouWon();
 
 	}
 
@@ -127,20 +162,25 @@ public class Hangman3 {
 		populateNormalWordList(); // Kör metod
 
 		String answer = getRandomWord();// Kör metod och hämtar ett enkelt ord med hjälp av
-												// populateEasyWordList(); och wordList som är global
-		//System.out.println(answer);
+										// populateEasyWordList(); och wordList som är global
+		// System.out.println(answer);
 
 		progressWord(answer);// Kör metod
 
-		
-
-		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 16; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // Kör metod och ger den namnet String guess
+			
+			guessedLetters(guess);
+			
+			System.out.println("Your guessed letters: " + guessedLetters);
+			
 
 			if (answer.contains(guess.toLowerCase())) { // om det man gissar finns i ordet så körs denna if sats
-				tries--; // om man har rätt så ska inte tries öka
+				// om man har rätt så ska inte tries öka
+				System.out.println("Right letter");
+				System.out.println("Guesses made:" + tries);
 
 				char[] tempWord = progressWord.toCharArray(); //
 
@@ -159,12 +199,24 @@ public class Hangman3 {
 
 				progressWord = String.copyValueOf(tempWord); //
 
-			} else {
-				System.out.println("Wrong");
+			}
+
+			else {
+				System.out.println("Wrong letter");
 				System.out.println(tries);
 			}
 
 			System.out.println(progressWord);
+
+			if (tries > 14) {
+				printYouLost();
+			}
+
+			if (progressWord.equals(answer)) {
+				printYouWon();
+				printRestartMessage();
+
+			}
 
 		}
 
@@ -174,19 +226,25 @@ public class Hangman3 {
 		populateHardWordList(); // Kör metod
 
 		String answer = getRandomWord();// Kör metod och hämtar ett enkelt ord med hjälp av populateEasyWordList();
-											// och wordList som är global
-		//System.out.println(answer);
+										// och wordList som är global
+		// System.out.println(answer);
 
 		progressWord(answer);// Kör metod
 
-
-		for (int tries = 0; tries < 15; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
+		for (int tries = 0; tries < 16; tries++) {// For loop som skapar variabel inte tries. Får inte blir mer än 10
 													// och varje gång loopen körs så ökar tries
 
 			String guess = getGuess(); // Kör metod och ger den namnet String guess
+			
+			guessedLetters(guess);
+			
+			System.out.println("Your guessed letters: " + guessedLetters);
+			
 
 			if (answer.contains(guess.toLowerCase())) { // om det man gissar finns i ordet så körs denna if sats
-				tries--; // om man har rätt så ska inte tries öka
+				// om man har rätt så ska inte tries öka
+				System.out.println("Right letter");
+				System.out.println("Guessed made:" + tries);
 
 				char[] tempWord = progressWord.toCharArray(); //
 
@@ -197,20 +255,29 @@ public class Hangman3 {
 
 						tempWord[i] = guess.charAt(0); // Ersätter tempWord till guess
 
-						// System.out.print(newWord);
-						// System.out.print(progressWord.replace("-", guess));
-
 					}
 				}
 
 				progressWord = String.copyValueOf(tempWord); //
 
-			} else {
-				System.out.println("Wrong");
+			}
+
+			else {
+				System.out.println("Wrong letter");
 				System.out.println(tries);
 			}
 
 			System.out.println(progressWord);
+
+			if (tries > 14) {
+				printYouLost();
+			}
+
+			if (progressWord.equals(answer)) {
+				printYouWon();
+				printRestartMessage();
+
+			}
 
 		}
 
@@ -221,8 +288,6 @@ public class Hangman3 {
 		int randomIndex = (int) (Math.random() * range);
 		return _wordList.get(randomIndex);
 	}
-
-	
 
 	private static void populateEasyWordList() {
 		_wordList.clear();
@@ -258,13 +323,13 @@ public class Hangman3 {
 		letterThatHasBeenGuessed = input.nextLine();
 
 		return letterThatHasBeenGuessed;
-		
+
 	}
 
 	private static int getDifficulty() {
 		return getValidIntegerInput(); // Skickar det den fick av getValidIntegerInput till Play
 	}
-
+ 
 	private static int getValidIntegerInput() { // tar emot input och sedan skickar tbx till get getDifficulty
 		while (true) {
 			if (!_input.hasNextInt()) {
@@ -278,22 +343,48 @@ public class Hangman3 {
 	private static void printWelcomeMessage() {
 
 		System.out.println("Welcome to Hangman! To win you have to guess the right word");
-		System.out.println("There are three different levels:");
+		System.out.println("There are three different levels and you have 15 tries:");
 		System.out.println("The level deppends on how many letters the word contains");
 		System.out.println("The first level has a word with five letters");
 		System.out.println("The second level has a word with seven letters");
 		System.out.println("The third level has a word with nine letters");
-		System.out.println("choose a level!");
+		System.out.println("choose a level by picking 1,2 or 3 and end game with 5!");
 
 	}
 
-	private static void printGoodbyeMessage() {
-		System.out.println("Hope you enjoyed this game, good bye! Press 4 to play again.");
-		play();
+	private static void printRestartMessage() {
+		System.out.println("Hope you enjoyed this game! Press 4 to play again. ");
+		System.out.println("Or press 5 to end game!");
+		
+		if (_input.nextInt() == 4) {
+			System.out.println("Pick a level");
+			restartGame();
+			
+		} if (_input.nextInt() == 5) {
+			thanksForPlayin();
+			
+		}
+		else {
+			System.out.println("Pick 4 or 5");
+			printRestartMessage();
+		}
+		
+		
+		
+	}
+	private static void thanksForPlayin() {
+		System.out.println("Thanks for playing!");
+		System.out.println("Good bye");
+		
 	}
 
 	private static void printYouWon() {
+		System.out.println(" ");
 		System.out.println("Congratiolation you won!");
+	}
+
+	private static void printYouLost() {
+		System.out.println("You lost!");
 	}
 
 }
