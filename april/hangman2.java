@@ -95,18 +95,7 @@ public class hangman2 {
 
 	}
 
-	public static String StarMaker(String UnknownWord) {
-
-		String StarWord = "";
-
-		for (int i = 0; i < UnknownWord.length(); i++) {
-
-			StarWord += "*";
-
-		}
-		System.out.print(StarWord);
-		return StarWord;
-	}
+	
 
 	public static void ReplaceLetter(String UnknownWord, String Gissning) {
 

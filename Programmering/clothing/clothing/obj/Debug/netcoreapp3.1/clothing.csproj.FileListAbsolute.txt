@@ -1,0 +1,13 @@
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.exe
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.deps.json
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.runtimeconfig.json
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.runtimeconfig.dev.json
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.dll
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\bin\Debug\netcoreapp3.1\clothing.pdb
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.csprojAssemblyReference.cache
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.AssemblyInfoInputs.cache
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.AssemblyInfo.cs
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.csproj.CoreCompileInputs.cache
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.dll
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.pdb
+C:\Users\filip.parsa\Documents\GitHub\ParsaFIlip2002\Programmering\clothing\clothing\obj\Debug\netcoreapp3.1\clothing.genruntimeconfig.cache
